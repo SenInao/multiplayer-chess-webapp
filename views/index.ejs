@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="socket.io/socket.io.js"></script>
+		<script type="text/javascript" src="chess.js"></script>
+	</head>
+	<body>
+		<div class="menu">
+			<h4 id="name">NAME: Guest</h4>
+			<div>
+				<input type="text" placeholder="name" id="nameInput">
+				<button type="button" id="nameChange">change</button>
+			</div>
+			<div>
+				<label>Queue: </label>
+				<select id="queueInput">
+					<option value="blitz">3 min</option>
+					<option value="rapid">10 min</option>
+				</select>
+			</div>
+			<div>
+				<button type="button" id="play">PLAY</button>
+			</div>
+		</div>
+		<div class="gameWrapper">
+			<div class="canvasWrapper">
+				<h2 id="canvasInfo"></h2>
+				<canvas id="canvas"></canvas>
+			</div>
+			<div class="timers">
+				<div class="timer">
+					<h2 id="timer1">Time1</h2>
+				</div>
+				<div class="timer">
+					<h2 id="timer2">Time2</h2>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

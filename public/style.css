@@ -1,0 +1,42 @@
+body {
+	height: 100%;
+}
+
+.menu {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.menu div {
+	padding: 5px;
+}
+
+.gameWrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	overflow: hidden;
+};
+
+.canvasWrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.timers {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.timer {
+	display: flex;
+	align-items: center;
+	background: lightgrey;
+	padding: 30px;
+	margin: 10px;
+}
