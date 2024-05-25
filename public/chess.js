@@ -247,7 +247,16 @@ window.onload = function () {
 
 	gameWrapper.style.display = "none";
 
-	WIDTH = Math.min(window.innerWidth*margin, window.innerHeight*margin);
+	if (window.innerWidth < window.innerHeight) {
+		WIDTH = window.innerWidth * 0.94;
+		gameWrapper.style.flexDirection = "column";
+		timers.style.flexDirection = "row";
+	} else {
+		WIDTH = Math.min(window.innerWidth*margin, window.innerHeight*margin);
+		gameWrapper.style.flexDirection = "row";
+		timers.style.flexDirection = "column";
+	};
+
 	CELLWIDTH = WIDTH/8;
 	IMGSIZE = CELLWIDTH/1.5;
 
@@ -281,7 +290,16 @@ window.onload = function () {
 };
 
 window.onresize = function() {
-	WIDTH = Math.min(window.innerWidth*margin, window.innerHeight*margin);
+	if (window.innerWidth < window.innerHeight) {
+		WIDTH = window.innerWidth * 0.94;
+		gameWrapper.style.flexDirection = "column";
+		timers.style.flexDirection = "row";
+	} else {
+		WIDTH = Math.min(window.innerWidth*margin, window.innerHeight*margin);
+		gameWrapper.style.flexDirection = "row";
+		timers.style.flexDirection = "column";
+	};
+
 	CELLWIDTH = WIDTH/8;
 	IMGSIZE = CELLWIDTH/1.5;
 	XOFFSET = IMGSIZE*takenImgMargin;

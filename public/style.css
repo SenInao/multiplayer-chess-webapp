@@ -40,3 +40,13 @@ body {
 	padding: 30px;
 	margin: 10px;
 }
+
+@media screen and (max-width: 600px) {
+	body .gameWrapper {
+		flex-direction: column;
+	}
+
+	body .timers {
+		flex-direction: row;
+	}
+}
