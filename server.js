@@ -14,15 +14,15 @@ app.get("/" ,(req,res) => {
 });
 
 const chessPlayers = [];
-const games = [];
+const chessGames = [];
 
 const {handler} = require("./chess/socketHandler");
 const { matchmaking } = require('./chess/matchmaking');
 
-handler(io, chessPlayers, games);
+handler(io, chessPlayers, chessGames);
 
 setInterval(() => {
-	matchmaking(games, chessPlayers, io);
+	matchmaking(chessGames, chessPlayers, io);
 }, 1000);
 
 const PORT = 80;

@@ -117,17 +117,8 @@ function isCheckmateOrDraw(game, color) {
 			continue;
 		};
 
-		let moves = game.pieces[p].getMoves(game);
-		for (let m = 0; m < moves.length; m++) {
-			let gameCopy = CD.cloneDeep(game);
-			let packet = {piece:gameCopy.pieces[p], newX:moves[m][0], newY:moves[m][1]};
-			if (move(gameCopy, packet)) {
-				if (isCheck(gameCopy, color)) {
-					continue;
-				} else {
-					return false;
-				};
-			};
+		if (game.pieces[p].allowedMoves.length > 0) {
+			return false;
 		};
 	};
 
@@ -139,6 +130,7 @@ function updateAllowedMoves(game, color) {
 		if (game.pieces[p].type === color) {
 			continue;
 		};
+
 		let moves = game.pieces[p].getMoves(game);
 		game.pieces[p].allowedMoves = [];
 		for (let m = 0; m < moves.length; m++) {
@@ -146,17 +138,10 @@ function updateAllowedMoves(game, color) {
 
 			let packet = {piece:game.pieces[p], newX:moves[m][0], newY:moves[m][1]};
 
-			let packetCopy = CD.cloneDeep(packet);
-
-			if (move(gameCopy, packetCopy)) {
+			if (move(gameCopy, packet)) {
 				if (isCheck(gameCopy, game.pieces[p].type)) {
 					continue;
 				};
-			};
-
-			let [_,collision] = checkCollision(game, moves[m][0], moves[m][1]);
-			if (collision) {
-				continue;
 			};
 
 			game.pieces[p].allowedMoves.push(moves[m]);

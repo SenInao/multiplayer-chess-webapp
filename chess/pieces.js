@@ -195,12 +195,6 @@ class Pawn extends Piece {
 		let moves = [];
 		let possibleMoves;
 
-		if ([1,6].includes(this.y)) {
-			possibleMoves = [[0,dir*2],[0,dir]] ;
-		} else{
-			possibleMoves = [[0,dir]];
-		};
-
 		let [_, collision] = checkCollision(game, this.x, this.y + dir);
 		if (collision) {
 			possibleMoves = [];
@@ -210,6 +204,8 @@ class Pawn extends Piece {
 				possibleMoves = [[0,dir]];
 			} else if (!this.hasMoved) {
 				possibleMoves = [[0,dir*2],[0,dir]] ;
+			} else {
+				possibleMoves = [[0,dir]];
 			};
 		};
 
